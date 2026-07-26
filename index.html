@@ -3,266 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materiály v architektuře | Studijní platforma</title>
-
+    <title>ARCHITEKTURA — MATERIÁLY</title>
     <style>
-        /* Reset a základní nastavení */
+        /* Úplné odstranění původního stylu */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #1a1a1a;
-            background-color: #fbfbfb;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
             line-height: 1.6;
+            padding: 40px 20px;
         }
 
-        /* Navigace na světové úrovni */
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Čistá textová navigace */
         nav {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 25px 10%;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e5e5;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            align-items: baseline;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 15px;
+            margin-bottom: 80px;
         }
 
         .logo {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
-            letter-spacing: 2px;
             text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 35px;
-        }
-
-        .nav-links a {
-            color: #666666;
+        .nav-link {
+            font-size: 13px;
+            text-transform: uppercase;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
             color: #000000;
+            letter-spacing: 1px;
         }
 
-        /* Hlavní hero sekce */
+        /* Typografická hlavní sekce */
         header {
-            padding: 100px 10%;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 100px;
+            max-width: 800px;
         }
 
         header h1 {
-            font-size: 48px;
+            font-size: 64px;
             font-weight: 300;
-            letter-spacing: -1px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #1a1a1a;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
         }
 
         header p {
             font-size: 18px;
-            color: #666666;
-            max-width: 600px;
+            color: #555555;
             font-weight: 300;
         }
 
-        /* Obsahová část */
-        main {
-            padding: 80px 10%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
+        /* Sekce Aktuality */
         .section-title {
             font-size: 12px;
             font-weight: 600;
-            letter-spacing: 3px;
             text-transform: uppercase;
-            color: #888888;
+            letter-spacing: 4px;
+            color: #999999;
             margin-bottom: 40px;
-            position: relative;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 1px;
-            background: #000000;
-            margin-top: 10px;
-        }
-
-        /* Grid pro studijní materiály */
-        .materials-grid {
+        /* DvouSloupcový čistě textový grid */
+        .text-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            margin-bottom: 120px;
         }
 
-        /* Karta materiálu / článku */
-        .material-card {
-            background: #ffffff;
-            padding: 40px;
-            border: 1px solid #e5e5e5;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .text-block {
+            border-top: 1px solid #000000;
+            padding-top: 20px;
         }
 
-        .material-card:hover {
-            border-color: #000000;
-            transform: translateY(-4px);
-        }
-
-        .card-tag {
+        .category {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #999999;
+            letter-spacing: 2px;
+            color: #888888;
             margin-bottom: 15px;
-            font-weight: 600;
+            display: block;
         }
 
-        .material-card h3 {
-            font-size: 22px;
+        .text-block h2 {
+            font-size: 24px;
             font-weight: 400;
             margin-bottom: 15px;
-            color: #1a1a1a;
+            letter-spacing: -0.5px;
         }
 
-        .material-card p {
-            font-size: 14px;
-            color: #666666;
-            margin-bottom: 30px;
+        .text-block p {
+            font-size: 15px;
+            color: #333333;
             font-weight: 300;
+            text-align: justify;
         }
 
-        .card-link {
-            font-size: 13px;
-            font-weight: 600;
-            text-decoration: none;
-            color: #000000;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .card-link::after {
-            content: '→';
-            transition: transform 0.3s ease;
-        }
-
-        .material-card:hover .card-link::after {
-            transform: translateX(5px);
-        }
-
-        /* Patička webu */
+        /* Minimalistická patička */
         footer {
-            background: #ffffff;
-            padding: 40px 10%;
-            border-top: 1px solid #e5e5e5;
-            text-align: center;
-            font-size: 12px;
-            color: #999999;
-            letter-spacing: 1px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #aaaaaa;
+            border-top: 1px solid #eeeeee;
+            padding-top: 40px;
         }
 
-        /* Responsivita pro mobily */
+        /* Mobilní zobrazení */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
-            }
-            header {
-                padding: 60px 20px;
-            }
-            header h1 {
-                font-size: 32px;
-            }
-            main {
-                padding: 40px 20px;
-            }
+            header h1 { font-size: 40px; }
+            .text-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">ArchStudio.</div>
-    <ul class="nav-links">
-        <li><a href="#" class="active">Úvod</a></li>
-        <li><a href="#">Materiály</a></li>
-        <li><a href="#">Textury</a></li>
-        <li><a href="#">O projektu</a></li>
-    </ul>
-</nav>
+    <div class="wrapper">
+        <!-- Horní menu bez ikon a grafiky -->
+        <nav>
+            <div class="logo">Architektura / Výzkum</div>
+            <a href="#" class="nav-link">Úvodní stránka</a>
+        </nav>
 
-<header>
-    <h1>Udržitelné materiály v současné architektuře</h1>
-    <p>Digitální knihovna a studijní platforma zaměřená na materiálové inženýrství, strukturální estetiku a ekologické trendy v moderním stavitelství.</p>
-</header>
+        <!-- Hlavní textový panel -->
+        <header>
+            <h1>Materiály & Formy</h1>
+            <p>Teoretická platforma pro studium materiálové kultury, strukturální estetiky a tektonických principů v současné globální architektuře.</p>
+        </header>
 
-<main>
-    <div class="section-title">Aktuality a studie</div>
+        <!-- Studijní příspěvky (pouze textové moduly) -->
+        <main>
+            <div class="section-title">Aktuality a eseje</div>
+            
+            <div class="text-grid">
+                <div class="text-block">
+                    <span class="category">Esej / Tektonika</span>
+                    <h2>Fenomenologie surového povrchu</h2>
+                    <p>Studium toho, jak materiály stárnou a jak světlo reagonuje s texturou. Moderní architektonická teorie se vrací k podstatě materiálů bez dodatečných vrstev a dekorů, kde samotná struktura plní estetickou i nosnou funkci objektu.</p>
+                </div>
 
-    <div class="materials-grid">
-        <!-- Karta 1 -->
-        <div class="material-card">
-            <div>
-                <div class="card-tag">Strukturální</div>
-                <h3>Pohledový beton a jeho transformace</h3>
-                <p>Analýza evoluce surového betonu od brutalismu po minimalistické rezidenční objekty 21. století.</p>
+                <div class="text-block">
+                    <span class="category">Technologie / Udržitelnost</span>
+                    <h2>Uhlíková stopa a materiálový cyklus</h2>
+                    <p>Analýza životního cyklu stavebních prvků. Současný diskurz na předních světových univerzitách se zaměřuje na opětovné využití lokálních surovin, redukci polymerů a integraci přírodních kompozitů přímo do nosných schémat budov.</p>
+                </div>
             </div>
-            <a href="#" class="card-link">Číst studii</a>
-        </div>
+        </main>
 
-        <!-- Karta 2 -->
-        <div class="material-card">
-            <div>
-                <div class="card-tag">Udržitelnost</div>
-                <h3>Křížem lepené dřevo (CLT)</h3>
-                <p>Technologický rozbor materiálu, který mění uvažování o výškových dřevostavbách a uhlíkové stopě.</p>
-            </div>
-            <a href="#" class="card-link">Číst studii</a>
-        </div>
-
-        <!-- Karta 3 -->
-        <div class="material-card">
-            <div>
-                <div class="card-tag">Detaily</div>
-                <h3>Kortenová ocel v městském kontextu</h3>
-                <p>Studie patiny, ochranných vrstev a integrace oxidovaného kovu do historické i moderní zástavby.</p>
-            </div>
-            <a href="#" class="card-link">Číst studii</a>
-        </div>
+        <!-- Čistá textová patička -->
+        <footer>
+            &copy; 2026 Studijní platforma pro architekturu. Všechna práva vyhrazena.
+        </footer>
     </div>
-</main>
-
-<footer>
-    &copy; 2026 ArchStudio. Všechna práva vyhrazena. Studijní materiály pro architekty.
-</footer>
 
 </body>
 </html>
